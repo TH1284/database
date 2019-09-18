@@ -1,0 +1,90 @@
+--일반 테이블 생성하기
+CREATE TABLE CUSTOMERDATA
+(
+    CUSTID VARCHAR(200),
+    AVERAGEPRICE NUMBER,
+    EMI NUMBER,
+    DEVICECOUNT NUMBER,
+    PRODUCTAGE NUMBER,
+    CUSTTYPE NUMBER
+    );
+    
+CREATE TABLE KOPO_ST_DDL_TH
+(
+    PRODUCT VARCHAR2(40),
+    YEARWEEK VARCHAR2(6),
+    VOLUME NUMBER,
+    DATA VARCHAR2(1000) default sysdate
+)
+
+SELECT * FROm KOPO_ST_DDL_TH
+
+CREATE TABLE CUSTOMERDATA2
+(
+    CUSTID VARCHAR(200),
+    AVERAGEPRICE NUMBER,
+    EMI NUMBER,
+    DEVICECOUNT NUMBER,
+    PRODUCTAGE NUMBER,
+    CUSTTYPE NUMBER default 'normal');
+    
+CREATE TABLE 태현
+(
+    컬럼1 NUMBER,
+    컬럼2 VARCHAR2(10),
+    컬럼3 DATE);
+    
+SELECT * FROM 태현
+
+--테이블 전체 복사하기
+CREATE TABLE 턔현4 AS SELECT * FROM 태현
+
+SELECT * FROM CUSTOMERDATA
+
+drop table 태현2
+
+create table customerdata5(
+    custid varchar2(200),
+    averageprice number,
+    emi number,
+    devicecount number,
+    productage number,
+    custtype varchar2(20) default 'normal')
+
+SELECT * FROM customerdata5
+
+INSERT INTO customerdata5(custid,averageprice,emi,devicecount) VALUES(1,2,3,4)
+
+SELECT * FROM TABS
+
+--임시 테이블 생성하기
+CREATE TABLE KOPO_CUSTOMERDATA_YH as SELECT * FROM CUSTOMERDATA
+
+SELECT * FROM KOPO_CUSTOMERDATA_YH
+
+--특정 컬럼만 복사
+ALTER TABLE KOPO_CUSTOMERDATA_YH add(DESCRIPTION VARCHAR2(100));
+
+alter table KOPO_CUSTOMERDATA_YH
+   add(description2 varchar2(100) default 'indo')
+
+--테이블 컬럼 이름 변경하기
+ALTER TABLE KOPO_CUSTOMERDATA_YH RENAME COLUMN DESCRIPTION TO NATION
+
+--컬럼속성 변경하기
+ALTER TABLE KOPO_CUSTOMERDATA_YH MODIFY(DESCRIPTION2 VARCHAR2(1000))
+
+--컬럼속성 확인하기
+DESC KOPO_CUSTOMERDATA_YH
+
+--컬럼삭제하기
+ALTER TABLE KOPO_CUSTOMERDATA_YH DROP COLUMN NATION
+
+SELECT * FROM KOPO_CUSTOMERDATA_YH
+
+--테이블 자료 삭제
+TRUNCATE TABLE KOPO_CUSTOMERDATA_YH
+
+SELECT * FROM KOPO_CUSTOMERDATA_YH
+
+--동시에 여러 테이블에 데이터 삽입
